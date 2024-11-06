@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './components/Home/Home';
 import NoMatch from './components/NotMatch/NotMatch';
+import FriendDetail from './components/FriendDetail/FriendDetail';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/home' element={<Home />}></Route>
+          <Route path='/friend/:friendId' element={<FriendDetail />}></Route>
           <Route exact path='/' Component={Home}></Route>
           <Route path='*' Component={NoMatch}></Route>
         </Routes>
