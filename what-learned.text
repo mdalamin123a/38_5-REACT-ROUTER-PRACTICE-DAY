@@ -1,2 +1,13 @@
-1. we can close component by using (/>) sign
-   ==> <Home />
+1. useNavigate() hook is used to navigate one page to another page without Link tag. we can navigate by using element handler function. the 1st arg is the page path where we want to navigate.
+   ==> import {useNavigate} from 'react-router-dom';
+   const Friend = () => {
+      const navigate = useNavigate();
+      function handleClick(id) {
+         navigate('/friend/'+id);
+      }
+      return (
+         <div>
+            <button onClick={()=>handleClick(id)} >Click me</button>
+         </div>
+      );
+   }
