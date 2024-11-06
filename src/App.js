@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { useEffect, useState } from 'react';
-import Friend from './components/Friend/Friend';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Home from './components/Home/Home';
+import NoMatch from './components/NotMatch/NotMatch';
 
 function App() {
-  const [friends, setFriends] = useState([]);
-  useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(data => setFriends(data));
-  }, []);
   return (
-    <>
-      <h1>Friends: {friends.length}</h1>
-      {
-        friends.map(friend => <Friend friend={friend}></Friend>)
-      }
-    </>
+    <div>
+      {/* self closing tag */}
+      {/* <Home /> */}
+      <Router>
+        <Routes>
+          <Route path='/home' element={<Home />}></Route>
+          <Route exact path='/' Component={Home}></Route>
+          <Route path='*' Component={NoMatch}></Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
